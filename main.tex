@@ -10,7 +10,7 @@
 % Trag hier deine Daten ein, die entsprechenden Felder werden automatisch angepasst.
 \def\meinTitel{Das Rucksackproblem}
 \def\artDerArbeit{HAUSARBEIT}
-\def\meinName{Alexander Regemann \& Sven Sendke}
+\def\meinName{Alexander Regemann, Sven Sendke}
 \def\meinKurs{TINF22F}
 \def\meineMatrikelNr{4296627 \& 8469950}
 \def\modul{Diskrete Mathematik}
@@ -41,6 +41,7 @@
 \usepackage{fancyhdr} %Kopf- und Fußzeile
 \usepackage[export]{adjustbox} %Bilder alignment
 \usepackage{stfloats} %Tabular at bottom
+\usepackage{amsmath}
 
 \usepackage{blindtext}
 
@@ -347,138 +348,217 @@ Diese Arbeit wurde bisher in gleicher oder ähnlicher Form oder auszugsweise noc
 \newpage
 \pagenumbering{arabic}
 \chapter{Einleitung}
-
 %********************************
 %Einleitung
 %********************************
-Dies ist ein Template für TX000 Arbeiten, mit ein paar Beispielen, wie diesem \ac{BA} oder folgendem Bild \ref{fig:example image}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5 \linewidth]{exampleImage}
-	\caption{Beispielbild mit einem cuten emoji :3}
-	\label{fig:example image}
-\end{figure}
 
-Außerdem gibt es noch diese Beispieltabelle:
-
-\begin{table}[]
-	\centering
-	\begin{tabular}[]{l| c r}
-		Spalte 1 & Spalte 2 & Spalte 3 \\
-		\hline
-		Wert 1 & Wert 2 & Wert 3
-	\end{tabular}
-	\caption{Beispiel Tabelle}
-%	\label{tab:example}
-\end{table}
-
-\pagebreak
-\section{Beispiel Zitat}
-Zitierungen werden mit cite\{Erste Zeile der Quelle in .bib datei\} eingefügt und sehen folgendermaßen aus:\cite{knabke2016grundlagen}
-
-\section{Beispiel Diagramme}
-
-\subsection{Flowchart}
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}[node distance=2cm]
-		\node (in1) [process] {Öffnen des Templates};
-		\node (pro1) [io, below of=in1] {Dein eigener Input};
-		\draw [arrow] (in1) -- (pro1);
-		\node (pro2) [process, below of=pro1] {Kompilation};
-		\draw [arrow] (pro1) -- (pro2);
-		\node (out1) [io, below of=pro2] {Output PDF};
-		\draw [arrow] (pro2) -- (out1);
-	\end{tikzpicture}
-	\caption{Beispiel Flowchart}
-	\label{fig:RufRFilter}
-\end{figure}
-
-\subsection{Struktogramm}
-Hier findet sich die Dokumentation zum Package: \href{https://augenbit.de/wiki/index.php?title=Struktogramme_mit_LaTeX}{Hyperlink beispiel}.
-Höhe und breite muss man leider selbst in Millimeter angeben, aber geht schon.
-
-\begin{figure}[h!]
-	\begin{struktogramm}(153,55)[]
-		\assign{
-			\begin{declaration}[Parameter:]
-				\description{\pVar{Beispiel Parameter}}{Hier die Parameter der Methode}
-			\end{declaration}
-		}
-		\ifthenelse[12]{3}{3}{DuBenutztDiesesTemplate == true}{\sTrue}{\sFalse}
-		
-			\return{Du bestehst}
-		\change % das \change ist quasi das "else if"
-			\forallin{$\forall Formkriterien \in Bewertungsbogen$} % for each schleife
-				\sub{Schau mer mal was wird}
-			\forallinend
-			\return{\sFalse}
-		\ifend
-	\end{struktogramm}
-	\caption{Struktogramm für Bestehen der Praxisarbeit}
-	\label{fig:StruktoBestehen}
-\end{figure}
-
-\pagebreak
-\section{Codeblöcke}
-Auch Codeblöcke können dargestellt werden:
-
-\begin{figure}[h!]
-	\centering
-			\begin{lstlisting}
-				public class Main {
-					public static void main(String[] args) throws IOException {
-						System.out.println("Hallo Welt")
-					}
-				}
-			\end{lstlisting}
-	\caption{Beispiel Codeblock}
-	\label{fig:BspCodeblock}
-\end{figure}
 
 
 %********************************
 %Aufgabenstellung
 %********************************
 \pagebreak
-\section{Aufgabenstellung}
-\blindtext
-\\
-\\
-\blindtext
+\section{Problemstellung}
 
 
 %********************************
 %Vorüberlegung
 %********************************
 \pagebreak
-\section{Vorüberlegung}
-\blindtext
+\section{Ziel der Hausarbeit}
+
+%********************************
+%Vorüberlegung
+%********************************
+\pagebreak
+\section{Struktur der Hausarbeit}
 
 
 %********************************
 %Lösung
 %********************************
 \newpage
-\chapter{Umsetzung}
-\blindtext
+\chapter{Grundlagen des Rucksackproblems}
+
+
+%********************************
+%Iwas eigenes
+%********************************
+\section{Definition}
+Gegeben sei eine Menge $U$ von Objekten. Jedem Objekt $u \in U$ wird ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$ zugeordnet. Es gibt außerdem eine Gewichtsschranke $B \in \mathbb{R}$.
+
+Gesucht ist eine Teilmenge $K \subseteq U$, die die Bedingung
+
+$$\sum_{u \in K} w(u) \leq B$$
+
+einhält und die Zielfunktion
+
+$$\sum_{u \in K} v(u)$$
+
+maximiert. \cite{kellererknapsack}
+
+%********************************
+%Iwas eigenes
+%********************************
+\section{Anwendungsgebiete}
+Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Bereichen der realen Welt Anwendung findet. Hier sind einige Beispiele:
+
+\begin{itemize}
+	\item \textbf{Ressourcenoptimierung:}
+	\begin{itemize}
+		\item \textbf{Zuschnitt von Rohmaterialien:} Das Rucksackproblem kann verwendet werden, um den Verschnitt beim Zuschnitt von Rohmaterialien zu minimieren. 
+		\item \textbf{Auswahl von Investitionen:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Investitionen für ein Portfolio zu finden.
+		\item \textbf{Auswahl von Vermögenswerten:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Vermögenswerten für eine Asset-Backed Securitization zu finden.
+	\end{itemize}
+	\item \textbf{Kryptographie:}
+	\begin{itemize}
+		\item \textbf{Generierung von Schlüsseln:} Das Rucksackproblem kann verwendet werden, um Schlüssel für kryptographische Systeme wie das Merkle-Hellman-Kryptosystem zu generieren.
+	\end{itemize}
+	\item \textbf{Prüfungsdesign:}
+	\begin{itemize}
+		\item \textbf{Zusammenstellung von Prüfungen:} Das Rucksackproblem kann verwendet werden, um Prüfungen so zusammenzustellen, dass die Schüler die höchstmögliche Punktzahl erreichen können.
+	\end{itemize}
+	\item \textbf{Weitere Anwendungsgebiete:}
+	\begin{itemize}
+		\item Produktionsplanung
+		\item Personalplanung
+		\item Logistik
+		\item Telekommunikation
+	\end{itemize}
+\end{itemize}
+
+%********************************
+%Iwas eigenes
+%********************************
+\section{Komplexitätsanalyse}
+
+
+
+%********************************
+%Lösung
+%********************************
+\newpage
+\chapter{Dynamisches Programmieren}
 
 
 %********************************
 %Iwas eigenes
 %********************************
 \pagebreak
-\section{Beispiel}
-\blindtext
+\section{Prinzip des dynamischen Programmierens}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Implementierung des dynamischen Programmierens für das Rucksackproblem}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Laufzeitanalyse und Komplexität}
+
+
+
+%********************************
+%Lösung
+%********************************
+\newpage
+\chapter{Greedy-Algorithmen}
+
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Prinzip der Greedy-Algorithmen}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Beispiele für Greedy-Lösungsansätze}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Vergleich mit dynamischem Programmieren}
+
+
+
+%********************************
+%Lösung
+%********************************
+\newpage
+\chapter{Heuristische Ansätze}
+
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Genetische Algorithmen}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Simulierte Abkühlung (Simulated Annealing)}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Tabu-Suche}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Vergleich der Heuristiken und ihrer Effizienz}
+
+
+
+%********************************
+%Lösung
+%********************************
+\newpage
+\chapter{Anwendungsbeispiele und Fallstudien}
+
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Praktische Beispiele für das Rucksackproblem}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
 
 
 %********************************
 %Zusammenfassung und Ausblick
 %********************************
 \newpage
-\chapter{Kritische Reflexion und Ausblick}
-\blindtext
+\chapter{Zusammenfassung und Ausblick}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Kritische Reflexion}
+
+%********************************
+%Iwas eigenes
+%********************************
+\pagebreak
+\section{Ausblick auf zukünftige Entwicklungen und Forschungsrichtungen}
 
 
 %********************************
