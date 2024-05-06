@@ -368,6 +368,23 @@ Hier kommt der Abstract.
 % Definition
 %********************************
 \section{Definition}
+%Das Rucksackproblem ist ein klassisches Optimierungsproblem aus der Kombinatorik. Gegeben ist
+%eine Menge von Objekten $U$, wobei jedem Objekt $u \in U$ ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$
+%zugeordnet sind. Zusätzlich gibt es eine Gewichtsschranke $B$, die angibt, wie viel Gewicht maximal
+%transportiert werden kann.
+
+Das Ziel des Rucksackproblems ist es, eine Teilmenge $K \subseteq U$ zu finden, die das Gesamtgewicht
+$$\sum_{u \in K} w(u) \leq B$$
+nicht größer als $B$ macht und gleichzeitig den Gesamtnutzen
+$$\sum_{u \in K} v(u)$$
+maximiert.
+
+In der grafischen Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem})
+werden die Objekte durch ihre Gewicht-Nutzen-Verhältnisse repräsentiert. Das Problem ist NP-
+vollständig und hat zahlreiche Anwendungen in der Praxis, wie beispielsweise in der Logistik und beim
+Ressourcenmanagement.
+
+% Richtiger Text
 Gegeben sei eine Menge $U$ von Objekten. Jedem Objekt $u \in U$ wird ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$ zugeordnet. Es gibt außerdem eine Gewichtsschranke $B \in \mathbb{R}$.
 
 Gesucht ist eine Teilmenge $K \subseteq U$, die die Bedingung
@@ -523,16 +540,17 @@ Lösung; der entsprechende Zielfunktionswert wird mit f G. \cite{diubin2003avera
 %********************************
 %Iwas eigenes
 %********************************
-\section{Vergleich mit dynamischem Programmieren}
+%\section{Vergleich mit dynamischem Programmieren}
 
 %********************************
 %Lösung
 %********************************
 \newpage
 \chapter{Heuristische Ansätze}
+\section{Prinzip des Heuristische Ansatzes}
 2.8. Heuristic algorithms \cite{martello1987algorithms}
 
-
+\section{Beispiele für Greedy-Lösungsansätze}
 \begin{algorithm}
 	\caption{Heuristischer Ansatz (First-Fit-Decreasing) für das Rucksackproblem}
 	\begin{algorithmic}[1]
@@ -564,21 +582,37 @@ Lösung; der entsprechende Zielfunktionswert wird mit f G. \cite{diubin2003avera
 %********************************
 %Lösung
 %********************************
-\newpage
-\chapter{Anwendungsbeispiele und Fallstudien}
+%\newpage
+%\chapter{Anwendungsbeispiele und Fallstudien}
 
 
 %********************************
 %Iwas eigenes
 %********************************
 \pagebreak
-\section{Praktische Beispiele für das Rucksackproblem}
+\section{Praktisches Beispiel für das Rucksackproblem}
+Angenommen, du hast einen Rucksack mit einer maximalen Tragfähigkeit von 15 kg. Du stehst vor der Wahl, welche Gegenstände du mitnehmen möchtest. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen. Deine Aufgabe ist es, die Gegenstände auszuwählen, die du mitnehmen solltest, um den Gesamtnutzen zu maximieren, ohne das Gewichtslimit des Rucksacks zu überschreiten.
+
+Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (zum Beispiel in Euro):
+
+Gegenstand A: Gewicht = 5 kg, Nutzen = 10 Euro
+Gegenstand B: Gewicht = 8 kg, Nutzen = 14 Euro
+Gegenstand C: Gewicht = 3 kg, Nutzen = 7 Euro
+Gegenstand D: Gewicht = 4 kg, Nutzen = 5 Euro
+Das Ziel ist es, die Gegenstände so auszuwählen, dass der Gesamtnutzen maximiert wird, wobei das Gesamtgewicht den Rucksack nicht über 15 kg hinausgeht.
+
+Eine mögliche Lösung könnte sein:
+
+Gegenstand A (5 kg) + Gegenstand C (3 kg) + Gegenstand D (4 kg)
+Das Gesamtgewicht beträgt 5 kg + 3 kg + 4 kg = 12 kg, und der Gesamtnutzen beträgt 10 Euro + 7 Euro + 5 Euro = 22 Euro.
+
+In diesem Beispiel ist die optimale Auswahl von Gegenständen also A, C und D, da sie den Gesamtnutzen maximiert, ohne das Gewichtslimit des Rucksacks zu überschreiten.
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
-\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
+%\pagebreak
+%\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
 
 
 %********************************
