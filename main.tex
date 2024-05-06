@@ -369,21 +369,21 @@ Diese Arbeit wurde bisher in gleicher oder ähnlicher Form oder auszugsweise noc
 \section{Ziel der Hausarbeit}
 
 %********************************
-%Vorüberlegung
+% Vorüberlegung
 %********************************
 \pagebreak
 \section{Struktur der Hausarbeit}
 
 
 %********************************
-%Lösung
+% Grundlagen des Rucksackproblems
 %********************************
 \newpage
 \chapter{Grundlagen des Rucksackproblems}
 
 
 %********************************
-%Iwas eigenes
+% Definition
 %********************************
 \section{Definition}
 Gegeben sei eine Menge $U$ von Objekten. Jedem Objekt $u \in U$ wird ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$ zugeordnet. Es gibt außerdem eine Gewichtsschranke $B \in \mathbb{R}$.
@@ -396,10 +396,19 @@ einhält und die Zielfunktion
 
 $$\sum_{u \in K} v(u)$$
 
-maximiert. \cite{kellererknapsack}
+maximiert. \cite{kellerer2004knapsack}
+
+test \ref{fig:rucksackproblem}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{Knapsack_Problem_Illustration}
+	\caption{Rucksackproblem anhand eines Beispiels}
+	\label{fig:rucksackproblem}
+\end{figure}
 
 %********************************
-%Iwas eigenes
+% Anwendungsgebiete
 %********************************
 \section{Anwendungsgebiete}
 Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Bereichen der realen Welt Anwendung findet. Hier sind einige Beispiele:
@@ -407,43 +416,41 @@ Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Berei
 \begin{itemize}
 	\item \textbf{Ressourcenoptimierung:}
 	\begin{itemize}
-		\item \textbf{Zuschnitt von Rohmaterialien:} Das Rucksackproblem kann verwendet werden, um den Verschnitt beim Zuschnitt von Rohmaterialien zu minimieren. 
-		\item \textbf{Auswahl von Investitionen:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Investitionen für ein Portfolio zu finden.
-		\item \textbf{Auswahl von Vermögenswerten:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Vermögenswerten für eine Asset-Backed Securitization zu finden.
+		\item \textbf{Zuschnitt von Rohmaterialien:} Das Rucksackproblem kann verwendet werden, um den Verschnitt beim Zuschnitt von Rohmaterialien zu minimieren.\cite{kellerer2004knapsack} 
+		\item \textbf{Auswahl von Investitionen:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Investitionen für ein Portfolio zu finden.\cite{kellerer2004knapsack}
+		\item \textbf{Auswahl von Vermögenswerten:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Vermögenswerten für eine Asset-Backed Securitization zu finden.\cite{kellerer2004knapsack}
 	\end{itemize}
 	\item \textbf{Kryptographie:}
 	\begin{itemize}
-		\item \textbf{Generierung von Schlüsseln:} Das Rucksackproblem kann verwendet werden, um Schlüssel für kryptographische Systeme wie das Merkle-Hellman-Kryptosystem zu generieren.
-	\end{itemize}
-	\item \textbf{Prüfungsdesign:}
-	\begin{itemize}
-		\item \textbf{Zusammenstellung von Prüfungen:} Das Rucksackproblem kann verwendet werden, um Prüfungen so zusammenzustellen, dass die Schüler die höchstmögliche Punktzahl erreichen können.
-	\end{itemize}
-	\item \textbf{Weitere Anwendungsgebiete:}
-	\begin{itemize}
-		\item Produktionsplanung
-		\item Personalplanung
-		\item Logistik
-		\item Telekommunikation
+		\item \textbf{Generierung von Schlüsseln:} Das Rucksackproblem kann verwendet werden, um Schlüssel für kryptographische Systeme wie das Merkle-Hellman-Kryptosystem zu generieren.\cite{kellerer2004knapsack}
 	\end{itemize}
 \end{itemize}
 
 %********************************
-%Iwas eigenes
+% Komplexitätsanalyse
 %********************************
 \section{Komplexitätsanalyse}
 
+\cite{martello1987algorithms}
+
+%The decision problem form of the knapsack problem (Can a value of at least V be achieved without exceeding the weight W?) is NP-complete, thus there is no known algorithm that is both correct and fast (polynomial-time) in all cases.
+%https://en.wikipedia.org/wiki/Knapsack_problem#cite_note-3
+
+
+Das Knapsack-Problem ist bekanntlich NP. Es kann nicht in polynomieller Zeit durch einen deterministischen Algorithmus gelöst werden. Mit Hilfe der dynamischen Programmierung kann jedoch eine Lösung in pseudopolynomialer Zeit gefunden werden. \cite{assi8672677}
+
+Im Folgenden werden drei verschiedene Lösungen betrachtet.
 
 
 %********************************
-%Lösung
+% Dynamisches Programmieren
 %********************************
 \newpage
 \chapter{Dynamisches Programmieren}
 
 
 %********************************
-%Iwas eigenes
+% Prinzip des dynamischen Programmierens
 %********************************
 \pagebreak
 \section{Prinzip des dynamischen Programmierens}
@@ -453,6 +460,9 @@ Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Berei
 %********************************
 \pagebreak
 \section{Implementierung des dynamischen Programmierens für das Rucksackproblem}
+
+
+\cite{pferschy1999dynamic}
 
 %********************************
 %Iwas eigenes
@@ -468,6 +478,13 @@ Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Berei
 \newpage
 \chapter{Greedy-Algorithmen}
 
+The idea of the greedy algorithm for the problem (1) consists in a consecutive selection of items with the largest weight density cj=aj as long as the
+knapsack capacity admits it. More formally, the algorithm starts with a feasible solution x ¼ ð0; ... ; 0Þ and consecutively replaces zeros by ones in the
+order of decreasing ratios cj=aj (i.e., from the left to the right); each time the
+feasibility of the corresponding solution is checked. The process terminates
+after obtaining the last feasible solution. This solution xG is called the greedy
+solution; the corresponding objective function value is denoted by f G
+\cite{diubin2003average}
 
 %********************************
 %Iwas eigenes
@@ -494,6 +511,8 @@ Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Berei
 %********************************
 \newpage
 \chapter{Heuristische Ansätze}
+2.8. Heuristic algorithms \cite{martello1987algorithms}
+
 
 
 %********************************
