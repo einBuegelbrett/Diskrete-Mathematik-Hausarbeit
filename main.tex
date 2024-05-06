@@ -42,6 +42,8 @@
 \usepackage[export]{adjustbox} %Bilder alignment
 \usepackage{stfloats} %Tabular at bottom
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 \usepackage{blindtext}
 
@@ -289,23 +291,6 @@ Hier kommt der Abstract.
 \addtocontents{toc}{}
 \thispagestyle{plain}
 %-------------------------------------------------------
-
-
-\newpage
-\chapter*{Ehrenwörtliche Erklärung}
-\addcontentsline{toc}{chapter}{\protect\numberline{}Ehrenwörtliche Erklärung}
-
-Ich erkläre hiermit ehrenwörtlich, dass ich die vorliegende Arbeit selbstständig und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt habe. Aus den benutzten Quellen, direkt oder indirekt, übernommene Gedanken habe ich als solche kenntlich gemacht.
-\\
-\\
-\\
-Diese Arbeit wurde bisher in gleicher oder ähnlicher Form oder auszugsweise noch keiner anderen Prüfungsbehörde vorgelegt und auch nicht veröffentlicht
-
-\vspace{2.5cm}
-
-\parbox{6.5cm}{\hrule\medskip Ort, Datum}  \hfill \parbox{6.5cm}{\hrule\medskip Unterschrift} \hspace{3cm}
-
-
 %********************************
 %Abbildungsverzeichnis
 %********************************
@@ -358,20 +343,17 @@ Diese Arbeit wurde bisher in gleicher oder ähnlicher Form oder auszugsweise noc
 %********************************
 %Aufgabenstellung
 %********************************
-\pagebreak
 \section{Problemstellung}
 
 
 %********************************
 %Vorüberlegung
 %********************************
-\pagebreak
 \section{Ziel der Hausarbeit}
 
 %********************************
 % Vorüberlegung
 %********************************
-\pagebreak
 \section{Struktur der Hausarbeit}
 
 
@@ -452,59 +434,96 @@ Im Folgenden werden drei verschiedene Lösungen betrachtet.
 %********************************
 % Prinzip des dynamischen Programmierens
 %********************************
-\pagebreak
 \section{Prinzip des dynamischen Programmierens}
+Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprobleme zu zerlegen und deren Lösungen zu speichern, um sie später wiederzuverwenden. Indem wir die Teilproblemlösungen systematisch kombinieren, können wir das Gesamtproblem effizient lösen. Dieser Ansatz ist besonders nützlich bei Problemen mit überlappenden Teilstrukturen, bei denen viele Teilprobleme mehrmals auftreten. Das dynamische Programmieren ermöglicht eine optimale Lösung, indem es die Gesamtoptimalität aus lokalen optimalen Lösungen aufbaut.\cite{cormen2022introduction}
+
+% \cite{pferschy1999dynamic}
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
 \section{Implementierung des dynamischen Programmierens für das Rucksackproblem}
+\begin{algorithm}
+	\caption{Dynamisches Programmieren für das Rucksackproblem}
+	\begin{algorithmic}[1]
+		\State \textbf{Input:} Liste von Gegenständen mit Gewicht $w_i$ und Wert $v_i$, maximales Gewicht $W$ des Rucksacks
+		\State \textbf{Output:} Maximale Wertsumme, die in den Rucksack passt
+		
+		\State Initialisiere ein 2D-Array $dp$ mit Dimensionen $(n+1) \times (W+1)$ mit allen Einträgen auf $0$, wobei $n$ die Anzahl der Gegenstände ist
+		
+		\For{$i \gets 1$ to $n$}
+		\For{$j \gets 0$ to $W$}
+		\If{$w_i \leq j$}
+		\State $dp[i][j] \gets \max(dp[i-1][j], dp[i-1][j-w_i] + v_i)$
+		\Else
+		\State $dp[i][j] \gets dp[i-1][j]$
+		\EndIf
+		\EndFor
+		\EndFor
+		
+		\State \textbf{return} $dp[n][W]$
+	\end{algorithmic}
+\end{algorithm}
 
-
-\cite{pferschy1999dynamic}
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
 \section{Laufzeitanalyse und Komplexität}
-
-
 
 %********************************
 %Lösung
 %********************************
-\newpage
 \chapter{Greedy-Algorithmen}
 
-The idea of the greedy algorithm for the problem (1) consists in a consecutive selection of items with the largest weight density cj=aj as long as the
-knapsack capacity admits it. More formally, the algorithm starts with a feasible solution x ¼ ð0; ... ; 0Þ and consecutively replaces zeros by ones in the
-order of decreasing ratios cj=aj (i.e., from the left to the right); each time the
-feasibility of the corresponding solution is checked. The process terminates
-after obtaining the last feasible solution. This solution xG is called the greedy
-solution; the corresponding objective function value is denoted by f G
-\cite{diubin2003average}
+%The idea of the greedy algorithm for the problem (1) consists in a consecutive selection of items with the largest weight density cj=aj as long as the
+%knapsack capacity admits it. More formally, the algorithm starts with a feasible solution x ¼ ð0; ... ; 0Þ and consecutively replaces zeros by ones in the
+%order of decreasing ratios cj=aj (i.e., from the left to the right); each time the
+%feasibility of the corresponding solution is checked. The process terminates
+%after obtaining the last feasible solution. This solution xG is called the greedy
+%solution; the corresponding objective function value is denoted by f G
+%\cite{diubin2003average}
+
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
 \section{Prinzip der Greedy-Algorithmen}
+Die Idee des Greedy Algorithmus für das Problem besteht in einer fortlaufenden Auswahl von Elementen mit der größten Gewichtsdichte cj=aj, solange die
+Knapsack-Kapazität dies zulässt. Formal gesehen beginnt der Algorithmus mit einer machbaren Lösung x ¼ ð0; ... ; 0Þ und ersetzt nacheinander Nullen durch Einsen in der
+Reihenfolge der abnehmenden Verhältnisse cj=aj (d.h. von links nach rechts);  jedes Mal wird die Machbarkeit der entsprechenden Lösung überprüft. Der Prozess wird beendet
+nachdem die letzte machbare Lösung gefunden wurde. Diese Lösung xG wird als gierige
+Lösung; der entsprechende Zielfunktionswert wird mit f G. \cite{diubin2003average}
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
 \section{Beispiele für Greedy-Lösungsansätze}
+\begin{algorithm}
+	\caption{Greedy-Algorithmus für das Rucksackproblem}
+	\begin{algorithmic}[1]
+		\State \textbf{Input:} Liste von Gegenständen mit Gewicht $w_i$ und Wert $v_i$, maximales Gewicht $W$ des Rucksacks
+		\State \textbf{Output:} Liste von ausgewählten Gegenständen für den Rucksack
+		
+		\State Sortiere die Gegenstände absteigend nach dem Verhältnis $v_i/w_i$
+		\State Initialisiere eine leere Liste $S$ für die ausgewählten Gegenstände
+		\State Setze das aktuelle Gesamtgewicht $totalWeight$ des Rucksacks auf $0$
+		
+		\For{each Gegenstand $i$ in der sortierten Liste}
+		\If{$totalWeight + w_i \leq W$}
+		\State Füge den Gegenstand $i$ zu $S$ hinzu
+		\State Erhöhe $totalWeight$ um $w_i$
+		\EndIf
+		\EndFor
+		
+		\State \textbf{return} $S$
+	\end{algorithmic}
+\end{algorithm}
 
 %********************************
 %Iwas eigenes
 %********************************
-\pagebreak
 \section{Vergleich mit dynamischem Programmieren}
-
-
 
 %********************************
 %Lösung
@@ -514,32 +533,33 @@ solution; the corresponding objective function value is denoted by f G
 2.8. Heuristic algorithms \cite{martello1987algorithms}
 
 
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Genetische Algorithmen}
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Simulierte Abkühlung (Simulated Annealing)}
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Tabu-Suche}
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Vergleich der Heuristiken und ihrer Effizienz}
-
-
+\begin{algorithm}
+	\caption{Heuristischer Ansatz (First-Fit-Decreasing) für das Rucksackproblem}
+	\begin{algorithmic}[1]
+		\State \textbf{Input:} Liste von Gegenständen mit Gewicht $w_i$ und Wert $v_i$, maximales Gewicht $W$ des Rucksacks
+		\State \textbf{Output:} Liste von ausgewählten Gegenständen für den Rucksack
+		
+		\State Sortiere die Gegenstände absteigend nach dem Gewicht $w_i$
+		\State Initialisiere eine Liste von Rucksäcken $B$ mit einem leeren Rucksack
+		
+		\For{each Gegenstand $i$ in der sortierten Liste}
+		\State $j \gets 1$
+		\While{$j \leq |B|$}
+		\If{Gegenstand $i$ passt in Rucksack $B[j]$}
+		\State Packe Gegenstand $i$ in Rucksack $B[j]$
+		\State \textbf{break}
+		\EndIf
+		\State $j \gets j + 1$
+		\EndWhile
+		\If{kein passender Rucksack gefunden}
+		\State Erstelle einen neuen Rucksack und packe Gegenstand $i$ hinein
+		\State Füge den neuen Rucksack zu $B$ hinzu
+		\EndIf
+		\EndFor
+		
+		\State \textbf{return} Alle Gegenstände in den Rucksäcken in $B$
+	\end{algorithmic}
+\end{algorithm}
 
 %********************************
 %Lösung
