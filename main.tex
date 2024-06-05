@@ -254,7 +254,7 @@
 
 
 %------------------Kopf- und Fußzeile-------------------
-\spacing{1.5}
+%\spacing{1.5}
 
 \fancypagestyle{plain}{
 	\fancyfoot[L]{\meinName\\
@@ -373,18 +373,24 @@ Hier kommt der Abstract.
 %zugeordnet sind. Zusätzlich gibt es eine Gewichtsschranke $B$, die angibt, wie viel Gewicht maximal
 %transportiert werden kann.
 
-Das Ziel des Rucksackproblems ist es, eine Teilmenge $K \subseteq U$ zu finden, die das Gesamtgewicht
-$$\sum_{u \in K} w(u) \leq B$$
-nicht größer als $B$ macht und gleichzeitig den Gesamtnutzen
-$$\sum_{u \in K} v(u)$$
-maximiert.
+%Das Ziel des Rucksackproblems ist es, eine Teilmenge $K \subseteq U$ zu finden, die das Gesamtgewicht
+%$$\sum_{u \in K} w(u) \leq B$$
+%nicht größer als $B$ macht und gleichzeitig den Gesamtnutzen
+%$$\sum_{u \in K} v(u)$$
+%maximiert.
 
-In der grafischen Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem})
-werden die Objekte durch ihre Gewicht-Nutzen-Verhältnisse repräsentiert. Das Problem ist NP-
-vollständig und hat zahlreiche Anwendungen in der Praxis, wie beispielsweise in der Logistik und beim
-Ressourcenmanagement.
 
-% Richtiger Text
+Das Rucksackproblem ist ein klassisches Optimierungsproblem der Informatik und der Mathematik aus dem Bereich der Kombinatorik, bei dem es um die Frage geht, wie eine begrenzte Menge von Gegenständen, die jeweils ein bestimmtes Gewicht und einen bestimmten Wert haben, so in einen Rucksack mit begrenzter Tragfähigkeit gepackt werden kann, dass der Gesamtwert der darin enthaltenen Gegenstände maximiert wird. Zur Veranschaulichung des Problems dient die grafische Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem}). 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{Knapsack_Problem_Illustration}
+	\caption{Rucksackproblem anhand eines Beispiels}
+	\label{fig:rucksackproblem}
+\end{figure}
+
+Das Problem ist NP-vollständig und kann mathematisch wie folgt formuliert werden:
+
 Gegeben sei eine Menge $U$ von Objekten. Jedem Objekt $u \in U$ wird ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$ zugeordnet. Es gibt außerdem eine Gewichtsschranke $B \in \mathbb{R}$.
 
 Gesucht ist eine Teilmenge $K \subseteq U$, die die Bedingung
@@ -397,20 +403,13 @@ $$\sum_{u \in K} v(u)$$
 
 maximiert. \cite{kellerer2004knapsack}
 
-test \ref{fig:rucksackproblem}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5 \linewidth]{Knapsack_Problem_Illustration}
-	\caption{Rucksackproblem anhand eines Beispiels}
-	\label{fig:rucksackproblem}
-\end{figure}
 
 %********************************
 % Anwendungsgebiete
 %********************************
 \section{Anwendungsgebiete}
-Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Bereichen der realen Welt Anwendung findet. Hier sind einige Beispiele:
+Das Rucksackproblem findet in vielen Bereichen der realen Welt Anwendung. Hier einige Beispiele:
 
 \begin{itemize}
 	\item \textbf{Ressourcenoptimierung:}
@@ -429,16 +428,11 @@ Das Rucksackproblem ist ein klassisches Optimierungsproblem, das in vielen Berei
 % Komplexitätsanalyse
 %********************************
 \section{Komplexitätsanalyse}
-
-\cite{martello1987algorithms}
-
+%\cite{martello1987algorithms}
 %The decision problem form of the knapsack problem (Can a value of at least V be achieved without exceeding the weight W?) is NP-complete, thus there is no known algorithm that is both correct and fast (polynomial-time) in all cases.
 %https://en.wikipedia.org/wiki/Knapsack_problem#cite_note-3
-
-
-Das Knapsack-Problem ist bekanntlich NP. Es kann nicht in polynomieller Zeit durch einen deterministischen Algorithmus gelöst werden. Mit Hilfe der dynamischen Programmierung kann jedoch eine Lösung in pseudopolynomialer Zeit gefunden werden. \cite{assi8672677}
-
-Im Folgenden werden drei verschiedene Lösungen betrachtet.
+Das Rucksackproblem gehört zur Komplexitätsklasse NP (nichtdeterministisch polynomielle Zeit). Dies bedeutet, dass das Problem mit einem deterministischen Algorithmus nicht in Polynomialzeit gelöst werden kann, sofern P ≠ NP. Eine Lösung in pseudopolynomieller Zeit kann jedoch z.B. mit Hilfe der dynamischen Programmierung gefunden werden. \cite{assi8672677}
+Im Folgenden sollen nun drei Lösungsmöglichkeiten betrachtet werden.
 
 
 %********************************
@@ -446,14 +440,12 @@ Im Folgenden werden drei verschiedene Lösungen betrachtet.
 %********************************
 \newpage
 \chapter{Dynamisches Programmieren}
-
-
+Im ersten Schritt wird der Ansatz der dynamischen Programmierung betrachtet.
 %********************************
 % Prinzip des dynamischen Programmierens
 %********************************
 \section{Prinzip des dynamischen Programmierens}
 Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprobleme zu zerlegen und deren Lösungen zu speichern, um sie später wiederzuverwenden. Indem wir die Teilproblemlösungen systematisch kombinieren, können wir das Gesamtproblem effizient lösen. Dieser Ansatz ist besonders nützlich bei Problemen mit überlappenden Teilstrukturen, bei denen viele Teilprobleme mehrmals auftreten. Das dynamische Programmieren ermöglicht eine optimale Lösung, indem es die Gesamtoptimalität aus lokalen optimalen Lösungen aufbaut.\cite{cormen2022introduction}
-
 % \cite{pferschy1999dynamic}
 
 %********************************
@@ -486,7 +478,7 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %********************************
 %Iwas eigenes
 %********************************
-\section{Laufzeitanalyse und Komplexität}
+%\section{Laufzeitanalyse und Komplexität}
 
 %********************************
 %Lösung
@@ -506,11 +498,16 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %Iwas eigenes
 %********************************
 \section{Prinzip der Greedy-Algorithmen}
-Die Idee des Greedy Algorithmus für das Problem besteht in einer fortlaufenden Auswahl von Elementen mit der größten Gewichtsdichte cj=aj, solange die
-Knapsack-Kapazität dies zulässt. Formal gesehen beginnt der Algorithmus mit einer machbaren Lösung x ¼ ð0; ... ; 0Þ und ersetzt nacheinander Nullen durch Einsen in der
-Reihenfolge der abnehmenden Verhältnisse cj=aj (d.h. von links nach rechts);  jedes Mal wird die Machbarkeit der entsprechenden Lösung überprüft. Der Prozess wird beendet
-nachdem die letzte machbare Lösung gefunden wurde. Diese Lösung xG wird als gierige
-Lösung; der entsprechende Zielfunktionswert wird mit f G. \cite{diubin2003average}
+Die Idee des Greedy-Algorithmus für das Knapsack-Problem besteht darin, Elemente fortlaufend nach ihrer Gewichtsdichte \( c_j = \frac{a_j}{w_j} \) auszuwählen, solange die Kapazität des Rucksacks dies zulässt. Der Algorithmus beginnt mit einer Anfangslösung \( x = (0, \ldots, 0) \) und ersetzt schrittweise Nullen durch Einsen, und zwar in der Reihenfolge abnehmender Gewichtsdichte \( c_j \) (also von den am besten zu den weniger gut geeigneten Elementen). Bei jedem Schritt wird überprüft, ob die neue Lösung noch machbar ist, das heißt, ob die Gesamtgewichte die Kapazität des Rucksacks nicht überschreiten.
+
+Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden können, ohne die Kapazität zu überschreiten. Die so gefundene Lösung \( x_G \) wird als gierige Lösung bezeichnet.
+
+
+%Die Idee des Greedy Algorithmus für das Problem besteht in einer fortlaufenden Auswahl von Elementen mit der größten Gewichtsdichte cj=aj, solange die
+%Rucksackkapazität dies zulässt. Formal gesehen beginnt der Algorithmus mit einer machbaren Lösung x ¼ ð0; ... ; 0Þ und ersetzt nacheinander Nullen durch Einsen in der
+%Reihenfolge der abnehmenden Verhältnisse cj=aj (d.h. von links nach rechts);  jedes Mal wird die Machbarkeit der entsprechenden Lösung überprüft. Der Prozess wird beendet
+%nachdem die letzte machbare Lösung gefunden wurde. Diese Lösung xG wird als gierige
+%Lösung bezeichnet; der entsprechende Zielfunktionswert wird mit f G notiert. \cite{diubin2003average}
 
 %********************************
 %Iwas eigenes
@@ -620,18 +617,6 @@ In diesem Beispiel ist die optimale Auswahl von Gegenständen also A, C und D, d
 %********************************
 \newpage
 \chapter{Zusammenfassung und Ausblick}
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Kritische Reflexion}
-
-%********************************
-%Iwas eigenes
-%********************************
-\pagebreak
-\section{Ausblick auf zukünftige Entwicklungen und Forschungsrichtungen}
 
 
 %********************************
