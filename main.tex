@@ -498,10 +498,9 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %Iwas eigenes
 %********************************
 \section{Prinzip der Greedy-Algorithmen}
-Die Idee des Greedy-Algorithmus für das Knapsack-Problem besteht darin, Elemente fortlaufend nach ihrer Gewichtsdichte \( c_j = \frac{a_j}{w_j} \) auszuwählen, solange die Kapazität des Rucksacks dies zulässt. Der Algorithmus beginnt mit einer Anfangslösung \( x = (0, \ldots, 0) \) und ersetzt schrittweise Nullen durch Einsen, und zwar in der Reihenfolge abnehmender Gewichtsdichte \( c_j \) (also von den am besten zu den weniger gut geeigneten Elementen). Bei jedem Schritt wird überprüft, ob die neue Lösung noch machbar ist, das heißt, ob die Gesamtgewichte die Kapazität des Rucksacks nicht überschreiten.
+Die Idee des Greedy-Algorithmus für das Rucksackproblem besteht darin, Elemente fortlaufend nach ihrer Gewichtsdichte \( c_j = \frac{a_j}{w_j} \) auszuwählen, solange die Kapazität des Rucksacks dies zulässt. Der Algorithmus beginnt mit einer Anfangslösung \( x = (0, \ldots, 0) \) und ersetzt schrittweise Nullen durch Einsen, und zwar in der Reihenfolge abnehmender Gewichtsdichte \( c_j \) (also von den am besten zu den weniger gut geeigneten Elementen). Bei jedem Schritt wird überprüft, ob die neue Lösung noch machbar ist, das heißt, ob die Gesamtgewichte die Kapazität des Rucksacks nicht überschreiten.
 
-Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden können, ohne die Kapazität zu überschreiten. Die so gefundene Lösung \( x_G \) wird als gierige Lösung bezeichnet.
-
+Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden können, ohne die Kapazität zu überschreiten. Die so gefundene Lösung \( x_G \) wird als gierige Lösung bezeichnet. \cite{diubin2003average}
 
 %Die Idee des Greedy Algorithmus für das Problem besteht in einer fortlaufenden Auswahl von Elementen mit der größten Gewichtsdichte cj=aj, solange die
 %Rucksackkapazität dies zulässt. Formal gesehen beginnt der Algorithmus mit einer machbaren Lösung x ¼ ð0; ... ; 0Þ und ersetzt nacheinander Nullen durch Einsen in der
@@ -543,11 +542,11 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 %Lösung
 %********************************
 \newpage
-\chapter{Heuristische Ansätze}
-\section{Prinzip des Heuristische Ansatzes}
-2.8. Heuristic algorithms \cite{martello1987algorithms}
+\chapter{First fit decreasing}
+\section{Prinzip des First fit decreasing}
+Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände absteigend nach ihrem Gewicht und packt jeden Gegenstand in den ersten Rucksack, in den er passt. Wenn kein passender Rucksack gefunden wird, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der FFD-Algorithmus ist einfach zu implementieren und bietet in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
 
-\section{Beispiele für Greedy-Lösungsansätze}
+\section{Beispiel für First fit decreasing}
 \begin{algorithm}
 	\caption{Heuristischer Ansatz (First-Fit-Decreasing) für das Rucksackproblem}
 	\begin{algorithmic}[1]
