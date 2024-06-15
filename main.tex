@@ -342,7 +342,7 @@ Das Rucksackproblem ist eines der bekanntesten und am häufigsten untersuchten P
 %Aufgabenstellung
 %********************************
 \section{Problemstellung}
-Das Rucksackproblem birgt trotz seiner scheinbaren Einfachheit eine erhebliche Schwierigkeit, die sich aus seiner exponentiellen Komplexität ergibt. Die Suche nach der optimalen Kombination von Gegenständen, um ie dKapazität des Rucksacks zu maximieren, erfordert eine umfassende Untersuchung aller möglichen Kombinationen. Diese exponentiell wachsende Anzahl von Kombinationen macht das Problem selbst für moderne Computerressourcen schwierig. Effiziente Algorithmen zur Lösung des Problems sind daher von entscheidender Bedeutung.
+Das Rucksackproblem birgt trotz seiner scheinbaren Einfachheit eine erhebliche Schwierigkeit, die sich aus seiner exponentiellen Komplexität ergibt. Die Suche nach der optimalen Kombination von Gegenständen, um die Kapazität des Rucksacks zu maximieren, erfordert eine umfassende Untersuchung aller möglichen Kombinationen. Diese exponentiell wachsende Anzahl von Kombinationen macht das Problem selbst mit modernen Computerressourcen schwierig. Effiziente Algorithmen zur Lösung des Problems sind daher von entscheidender Bedeutung.
 
 
 %********************************
@@ -357,7 +357,7 @@ Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösu
 %********************************
 \newpage
 \chapter{Grundlagen des Rucksackproblems}
-
+Wir werden uns nun mit dem Rucksackproblem befassen.
 
 %********************************
 % Definition
@@ -375,7 +375,7 @@ Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösu
 %maximiert.
 
 
-Das Rucksackproblem ist ein klassisches Optimierungsproblem der Informatik und der Mathematik aus dem Bereich der Kombinatorik, bei dem es um die Frage geht, wie eine begrenzte Menge von Gegenständen, die jeweils ein bestimmtes Gewicht und einen bestimmten Wert haben, so in einen Rucksack mit begrenzter Tragfähigkeit gepackt werden kann, dass der Gesamtwert der darin enthaltenen Gegenstände maximiert wird. Zur Veranschaulichung des Problems dient die grafische Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem}). 
+bei dem Rucksackproblem geht es um die Frage, wie eine begrenzte Menge von Gegenständen, die jeweils ein bestimmtes Gewicht und einen bestimmten Wert haben, so in einen Rucksack mit begrenzter Tragfähigkeit gepackt werden kann, dass der Gesamtwert der darin enthaltenen Gegenstände maximiert wird. Zur Veranschaulichung des Problems dient die grafische Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem}). 
 
 \begin{figure}[h]
 	\centering
@@ -397,27 +397,6 @@ einhält und die Zielfunktion
 $$\sum_{u \in K} v(u)$$
 
 maximiert. \cite{kellerer2004knapsack}
-
-
-
-%********************************
-% Anwendungsgebiete
-%********************************
-\section{Anwendungsgebiete}
-Das Rucksackproblem findet in vielen Bereichen der realen Welt Anwendung. Hier einige Beispiele:
-
-\begin{itemize}
-	\item \textbf{Ressourcenoptimierung:}
-	\begin{itemize}
-		\item \textbf{Zuschnitt von Rohmaterialien:} Das Rucksackproblem kann verwendet werden, um den Verschnitt beim Zuschnitt von Rohmaterialien zu minimieren.\cite{kellerer2004knapsack} 
-		\item \textbf{Auswahl von Investitionen:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Investitionen für ein Portfolio zu finden.\cite{kellerer2004knapsack}
-		\item \textbf{Auswahl von Vermögenswerten:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Vermögenswerten für eine Asset-Backed Securitization zu finden.\cite{kellerer2004knapsack}
-	\end{itemize}
-	\item \textbf{Kryptographie:}
-	\begin{itemize}
-		\item \textbf{Generierung von Schlüsseln:} Das Rucksackproblem kann verwendet werden, um Schlüssel für kryptographische Systeme wie das Merkle-Hellman-Kryptosystem zu generieren.\cite{kellerer2004knapsack}
-	\end{itemize}
-\end{itemize}
 
 %********************************
 % Komplexitätsanalyse
@@ -479,7 +458,7 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %Lösung
 %********************************
 \chapter{Greedy-Algorithmen}
-
+Im Folgenden wird der Greedy-Algorithmus betrachtet.
 %The idea of the greedy algorithm for the problem (1) consists in a consecutive selection of items with the largest weight density cj=aj as long as the
 %knapsack capacity admits it. More formally, the algorithm starts with a feasible solution x ¼ ð0; ... ; 0Þ and consecutively replaces zeros by ones in the
 %order of decreasing ratios cj=aj (i.e., from the left to the right); each time the
@@ -538,6 +517,7 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 %********************************
 \newpage
 \chapter{First fit decreasing}
+Es wird nun das Prinzip "First fit decreasing\dq \, betrachtet.
 \section{Prinzip des First fit decreasing}
 Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände absteigend nach ihrem Gewicht und packt jeden Gegenstand in den ersten Rucksack, in den er passt. Wenn kein passender Rucksack gefunden wird, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der FFD-Algorithmus ist einfach zu implementieren und bietet in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
 
@@ -576,57 +556,72 @@ Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände 
 %\newpage
 %\chapter{Anwendungsbeispiele und Fallstudien}
 
-
-%********************************
-%Iwas eigenes
-%********************************
 \pagebreak
-\section{Praktisches Beispiel für das Rucksackproblem}
-%Angenommen, du hast einen Rucksack mit einer maximalen Tragfähigkeit von 15 kg. Du stehst vor der Wahl, welche Gegenstände du mitnehmen möchtest. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen. Deine Aufgabe ist es, die Gegenstände %auszuwählen, die du mitnehmen solltest, um den Gesamtnutzen zu maximieren, ohne das Gewichtslimit des Rucksacks zu überschreiten.
+\chapter{Rucksackproblem in der Praxis}
+	Im Folgenden werden die Anwendungsbereiche des Rucksackproblems sowie ein Beispiel für das Rucksackproblem betrachtet.
+	
+	\section{Anwendungsgebiete}
+	Das Rucksackproblem findet in vielen Bereichen der realen Welt Anwendung. Hier einige Beispiele:
+	
+	\begin{itemize}
+		\item \textbf{Ressourcenoptimierung:}
+		\begin{itemize}
+			\item \textbf{Zuschnitt von Rohmaterialien:} Das Rucksackproblem kann verwendet werden, um den Verschnitt beim Zuschnitt von Rohmaterialien zu minimieren.\cite{kellerer2004knapsack} 
+			\item \textbf{Auswahl von Investitionen:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Investitionen für ein Portfolio zu finden.\cite{kellerer2004knapsack}
+			\item \textbf{Auswahl von Vermögenswerten:} Das Rucksackproblem kann verwendet werden, um die optimale Auswahl von Vermögenswerten für eine Asset-Backed Securitization zu finden.\cite{kellerer2004knapsack}
+		\end{itemize}
+		\item \textbf{Kryptographie:}
+		\begin{itemize}
+			\item \textbf{Generierung von Schlüsseln:} Das Rucksackproblem kann verwendet werden, um Schlüssel für kryptographische Systeme wie das Merkle-Hellman-Kryptosystem zu generieren.\cite{kellerer2004knapsack}
+		\end{itemize}
+	\end{itemize}
 
-%Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (zum Beispiel in Euro):
 
-%Gegenstand A: Gewicht = 5 kg, Nutzen = 10 Euro
-%Gegenstand B: Gewicht = 8 kg, Nutzen = 14 Euro
-%Gegenstand C: Gewicht = 3 kg, Nutzen = 7 Euro
-%Gegenstand D: Gewicht = 4 kg, Nutzen = 5 Euro
-%Das Ziel ist es, die Gegenstände so auszuwählen, dass der Gesamtnutzen maximiert wird, wobei das Gesamtgewicht den Rucksack nicht über 15 kg hinausgeht.
-
-%Eine mögliche Lösung könnte sein:
-
-%Gegenstand A (5 kg) + Gegenstand C (3 kg) + Gegenstand D (4 kg)
-%Das Gesamtgewicht beträgt 5 kg + 3 kg + 4 kg = 12 kg, und der Gesamtnutzen beträgt 10 Euro + 7 Euro + 5 Euro = 22 Euro.
-
-%In diesem Beispiel ist die optimale Auswahl von Gegenständen also A, C und D, da sie den Gesamtnutzen maximiert, ohne das Gewichtslimit des Rucksacks zu überschreiten.
-
-Hier ist ein praktisches Beispiel für das  Rucksackproblem unter Verwendung des Greedy-Algorithmus:
-
-Angenommen, du planst eine Wanderung und hast einen Rucksack mit einer maximalen Tragfähigkeit von 10 kg. Du stehst vor der Wahl, welche Ausrüstung du mitnehmen möchtest, um deine Bedürfnisse während der Wanderung zu erfüllen. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen, der angeben kann, wie wichtig oder nützlich er für deine Wanderung ist.
-
-Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (auf einer Skala von 1 bis 10, wobei 10 am nützlichsten ist):
-
-Wasserflasche: Gewicht = 1 kg, Nutzen = 9
-Proviant (Snacks): Gewicht = 2 kg, Nutzen = 8
-Schlafsack: Gewicht = 3 kg, Nutzen = 7
-Erste-Hilfe-Set: Gewicht = 1 kg, Nutzen = 6
-Regenjacke: Gewicht = 1.5 kg, Nutzen = 9
-Wanderkarte: Gewicht = 0.5 kg, Nutzen = 5
-Das Ziel ist es, die Ausrüstung so auszuwählen, dass der Gesamtnutzen maximiert wird, ohne das Gewichtslimit des Rucksacks zu überschreiten.
-
-Anhand des Greedy-Algorithmus würdest du die Gegenstände nacheinander auswählen, beginnend mit demjenigen, der den höchsten Nutzen pro Kilogramm bietet.
-
-Wasserflasche (1 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 9 kg
-Regenjacke (1.5 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 7.5 kg
-Proviant (Snacks) (2 kg) - Nutzen = 8, verbleibendes Gewicht im Rucksack: 5.5 kg
-Schlafsack (3 kg) - Nutzen = 7, verbleibendes Gewicht im Rucksack: 2.5 kg
-Erste-Hilfe-Set (1 kg) - Nutzen = 6, verbleibendes Gewicht im Rucksack: 1.5 kg
-Das Gesamtgewicht beträgt 1 kg + 1.5 kg + 2 kg + 3 kg + 1 kg = 8.5 kg, und der Gesamtnutzen beträgt 9 + 9 + 8 + 7 + 6 = 39.
-
-%********************************
-%Iwas eigenes
-%********************************
-%\pagebreak
-%\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
+	\section{Beispiel}
+	% Juwelier
+	Angenommen Sie rauben ein Juwelier.  
+	
+	%Angenommen, du hast einen Rucksack mit einer maximalen Tragfähigkeit von 15 kg. Du stehst vor der Wahl, welche Gegenstände du mitnehmen möchtest. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen. Deine Aufgabe ist es, die Gegenstände %auszuwählen, die du mitnehmen solltest, um den Gesamtnutzen zu maximieren, ohne das Gewichtslimit des Rucksacks zu überschreiten.
+	
+	%Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (zum Beispiel in Euro):
+	
+	%Gegenstand A: Gewicht = 5 kg, Nutzen = 10 Euro
+	%Gegenstand B: Gewicht = 8 kg, Nutzen = 14 Euro
+	%Gegenstand C: Gewicht = 3 kg, Nutzen = 7 Euro
+	%Gegenstand D: Gewicht = 4 kg, Nutzen = 5 Euro
+	%Das Ziel ist es, die Gegenstände so auszuwählen, dass der Gesamtnutzen maximiert wird, wobei das Gesamtgewicht den Rucksack nicht über 15 kg hinausgeht.
+	
+	%Eine mögliche Lösung könnte sein:
+	
+	%Gegenstand A (5 kg) + Gegenstand C (3 kg) + Gegenstand D (4 kg)
+	%Das Gesamtgewicht beträgt 5 kg + 3 kg + 4 kg = 12 kg, und der Gesamtnutzen beträgt 10 Euro + 7 Euro + 5 Euro = 22 Euro.
+	
+	%In diesem Beispiel ist die optimale Auswahl von Gegenständen also A, C und D, da sie den Gesamtnutzen maximiert, ohne das Gewichtslimit des Rucksacks zu überschreiten.
+	
+	Hier ist ein praktisches Beispiel für das  Rucksackproblem unter Verwendung des Greedy-Algorithmus:
+	
+	Angenommen, du planst eine Wanderung und hast einen Rucksack mit einer maximalen Tragfähigkeit von 10 kg. Du stehst vor der Wahl, welche Ausrüstung du mitnehmen möchtest, um deine Bedürfnisse während der Wanderung zu erfüllen. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen, der angeben kann, wie wichtig oder nützlich er für deine Wanderung ist.
+	
+	Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (auf einer Skala von 1 bis 10, wobei 10 am nützlichsten ist):
+	
+	Wasserflasche: Gewicht = 1 kg, Nutzen = 9
+	Proviant (Snacks): Gewicht = 2 kg, Nutzen = 8
+	Schlafsack: Gewicht = 3 kg, Nutzen = 7
+	Erste-Hilfe-Set: Gewicht = 1 kg, Nutzen = 6
+	Regenjacke: Gewicht = 1.5 kg, Nutzen = 9
+	Wanderkarte: Gewicht = 0.5 kg, Nutzen = 5
+	Das Ziel ist es, die Ausrüstung so auszuwählen, dass der Gesamtnutzen maximiert wird, ohne das Gewichtslimit des Rucksacks zu überschreiten.
+	
+	Anhand des Greedy-Algorithmus würdest du die Gegenstände nacheinander auswählen, beginnend mit demjenigen, der den höchsten Nutzen pro Kilogramm bietet.
+	
+	Wasserflasche (1 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 9 kg
+	Regenjacke (1.5 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 7.5 kg
+	Proviant (Snacks) (2 kg) - Nutzen = 8, verbleibendes Gewicht im Rucksack: 5.5 kg
+	Schlafsack (3 kg) - Nutzen = 7, verbleibendes Gewicht im Rucksack: 2.5 kg
+	Erste-Hilfe-Set (1 kg) - Nutzen = 6, verbleibendes Gewicht im Rucksack: 1.5 kg
+	Das Gesamtgewicht beträgt 1 kg + 1.5 kg + 2 kg + 3 kg + 1 kg = 8.5 kg, und der Gesamtnutzen beträgt 9 + 9 + 8 + 7 + 6 = 39.
+	
+	%\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
 
 
 %********************************
