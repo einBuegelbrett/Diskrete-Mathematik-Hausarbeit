@@ -45,6 +45,7 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{multirow}
 
 \usepackage{blindtext}
 
@@ -298,7 +299,8 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %Abbildungsverzeichnis
 %********************************
 \newpage
-\chapter*{Abbildungsverzeichnis}
+\chapter*{Verzeichnisse}
+\section*{Abbildungsverzeichnis}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Abbildungsverzeichnis}
 
 \listoffigures
@@ -309,15 +311,13 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %********************************
 %Tabellenverzeichnis
 %********************************
-\newpage
-\chapter*{Tabellenverzeichnis}
+\section*{Tabellenverzeichnis}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Tabellenverzeichnis}
 
 \listoftables
 
 
-\newpage
-\chapter*{Abkürzungsverzeichnis}
+\section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Abkürzungsverzeichnis}
 \markboth{Abkürzungsverzeichnis}{Abkürzungsverzeichnis} %Benötigt, damit das im header steht
 
@@ -325,7 +325,7 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %Abkürzungsverzeichnis
 %********************************
 \begin{acronym}[SOAP]
-	\acro{BA}{Beispiel Acronym}
+	\acro{FFD}{First Fit Decreasing}
 \end{acronym}
 
 
@@ -453,13 +453,13 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %Iwas eigenes
 %********************************
 \section{Vor- und Nachteile}
-Vorteile: 
+\textbf{Vorteile:}
 \begin{itemize}
 	\item Optimale Lösungen: Es garantiert die optimale Lösung durch systematisches Durchsuchen aller möglichen Teilprobleme.
 	\item Wiederverwendung von Teilproblemen: Durch Speichern und Wiederverwenden von Lösungen für Teilprobleme werden redundante Berechnungen vermieden.
 \end{itemize}
 
-Nachteile:
+\textbf{Nachteile:}
 \begin{itemize}
 	\item Hoher Speicherbedarf: Erfordert eine große Menge an Speicherplatz, da Lösungen für alle Teilprobleme gespeichert werden müssen (Speicherkomplexität von $O(n \cdot W)$, wobei $n$ die Anzahl der Gegenstände und $W$ die Kapazität des Rucksacks ist).
 	\item Nicht für große Eingaben geeignet: Bei sehr großen Problemen (z.B. sehr viele Gegenstände oder sehr große Kapazitäten) kann der Speicher- und Zeitbedarf trotz der Pseudopolynomiellen Laufzeit sehr hoch sein.
@@ -522,13 +522,13 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 %Iwas eigenes
 %********************************
 \section{Vor- und Nachteile}
-Vorteile: 
+\textbf{Vorteile:} 
 \begin{itemize}
 	\item Effizienz: Hat eine geringere Laufzeit (meist $O(nlogn)$ wegen des Sortierens), was ihn für große Datensätze schneller macht als dynamische Programmierung.
 	\item Schnelle Entscheidungsfindung: Trifft schnelle Entscheidungen ohne Rückverfolgung, was die Ausführungszeit weiter verkürzt.
 \end{itemize}
 
-Nachteile:
+\textbf{Nachteile:}	
 \begin{itemize}
 	\item Keine optimale Lösung für das Rucksackproblem: Führt nicht immer zu einer optimalen Lösung für das klassische Rucksackproblem.
 	\item Eingeschränkte Flexibilität: Weniger flexibel bei der Anpassung an komplexere Variationen des Rucksackproblems im Vergleich zu dynamischem Programmieren.
@@ -541,7 +541,7 @@ Nachteile:
 \chapter{First fit decreasing}
 Es wird nun das Prinzip "First fit decreasing\dq \, betrachtet.
 \section{Prinzip des First fit decreasing}
-Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände absteigend nach ihrem Gewicht und packt jeden Gegenstand in den ersten Rucksack, in den er passt. Wenn kein passender Rucksack gefunden wird, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der FFD-Algorithmus ist einfach zu implementieren und bietet in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
+Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihrem Gewicht und packt jeden Gegenstand in den ersten Rucksack, in den er passt. Wenn kein passender Rucksack gefunden wird, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der \ac{FFD}-Algorithmus ist einfach zu implementieren und bietet in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
 
 \section{Beispiel für First fit decreasing}
 \begin{algorithm}
@@ -576,13 +576,13 @@ Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände 
 %Iwas eigenes
 %********************************
 \section{Vor- und Nachteile}
-Vorteile: 
+\textbf{Vorteile:}
 \begin{itemize}
 	\item Schnelle Implementierung: Kann schnell implementiert werden, was ihn für einfache und schnelle Lösungsansätze attraktiv macht.
 	\item Geringer Speicherbedarf: Benötigt nur wenig zusätzlichen Speicherplatz neben den Eingabedaten.
 \end{itemize}
 
-Nachteile:
+\textbf{Nachteile:}
 \begin{itemize}
 	\item Keine Garantie für optimale Lösungen: Liefert nicht immer die optimale Lösung, insbesondere bei komplexeren oder ungünstigeren Eingaben.
 	\item Kann ineffizient sein: In einigen Fällen kann es zu einer schlechten Ausnutzung der Kapazität kommen, da Gegenstände früh platziert werden, ohne den zukünftigen Platzbedarf zu berücksichtigen.
@@ -610,11 +610,64 @@ Nachteile:
 
 
 	\section{Beispiel}
+		Es folgt ein Beispiel für den Greedy-Algortihmus.
+	
 		\subsection{Problemstellung}
+		Ein Kobold steht vor einem Dilemma: Eine Schatzkammer voller wertvoller Gegenstände, aber sein Rucksack bietet nur begrenzten Platz. Wie kann er seinen Gewinn maximieren, ohne zu viel Gewicht zu tragen?
+		
+		Rucksackkapazität des Kobolds: 5kg \\
+		Verfügbare Gegenstände \ref{tab:Preis und Gewichtsverhältnisse der Gegenstände}:      
+		\begin{table}[H]
+			\begin{center}
+				\begin{adjustbox}{width=\columnwidth,center}
+					\begin{tabular}{|c|c|c|c|}
+						\hline
+						Name & Preis (Gold) & Gewicht (kg) & Preis/Gewicht (Gold/kg)
+						\\
+						\hline
+						Glücksbringer & 125 & 0,25 & 500
+						\\
+						\hline
+						Opalglitzerschmuck & 150 & 0,5 & 300
+						\\
+						\hline
+						Amethystkette & 60 & 0,25 & 240
+						\\
+						\hline
+						Glühender Rubin & 200 & 1 & 200
+						\\
+						\hline
+						Mystischer Aquamarin & 300 & 2 & 150
+						\\
+						\hline
+						Säckchen Goldmünzen & 50 & 0,5 & 100
+						\\
+						\hline
+						Kugel des Untergangs & 70 & 1 & 70
+						\\
+						\hline
+						Antiker Elfenring & 50 & 1 & 50
+						\\
+						\hline
+						Handvoll Kupferstücke & 10 & 0,5 & 20
+						\\
+						\hline
+						Silberbarren & 20 & 2 & 10
+						\\
+						\hline
+					\end{tabular} 
+				\end{adjustbox}
+			\end{center} 
+			\caption{Preis und Gewichtsverhältnisse der Gegenstände}
+			\label{tab:Preis und Gewichtsverhältnisse der Gegenstände}
+		\end{table}
 		
 		\subsection{Lösung des Beispiels}
-		
+		Typisch für seine Art verwendet der Kobold für dieses Problem den Greedy Algorithmus. Daher nimmt er die Gegenstände mit dem höchsten Wert pro Gewicht, solange sie noch in seinen Rucksack passen. 
+		Vom Glücksbringer bis einschließlich zum Säckchen Goldmünzen passen alle Gegenstände in den Rucksack. Danach kann der Kobold weder die Kugel des Untergangs noch den antiken Elfenring mitnehmen und nimmt stattdessen noch die Handvoll Kupferstücke mit. Damit erreicht der Kobold 895 Gold mit 5kg Gewicht. 
+	
 		\subsection{Diskussion der Ergebnisse}
+		Der Greedy Ansatz weicht hier nur unwesentlich von der besten Lösung ab, bei der der Kobold statt der Handvoll Kupferstücke und dem Säckchen Goldmünzen die Kugel des Untergangs mitnehmen sollte, für insgesamt 905 Gold. Der Greedy-Alogithmus liefert, wie hier zu sehen ist, nicht immer die beste Lösung, aber eine gute Annäherung in sehr kurzer Zeit.
 
 %********************************
 %Zusammenfassung und Ausblick
