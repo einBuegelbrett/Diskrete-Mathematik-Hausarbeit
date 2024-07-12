@@ -284,7 +284,7 @@
 \newpage
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Abstract}
-In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme der kombinatorischen Optimierung untersucht. Das Rucksackproblem zeichnet sich durch seine breite Anwendbarkeit in Bereichen wie Logistik, Finanzplanung und Produktionsoptimierung aus, wobei es um die Auswahl einer Teilmenge von Objekten mit maximalem Gesamtwert innerhalb einer festen Gewichtsbeschränkung geht. Trotz seiner scheinbaren Einfachheit stellt das Rucksackproblem eine erhebliche rechnerische Herausforderung dar, da es zur Klasse der NP-schweren Probleme gehört und somit in der Regel nicht in Polynomialzeit gelöst werden kann. Die vorliegende Arbeit beleuchtet verschiedene Lösungsansätze, darunter dynamische Programmierung, Greedy-Algorithmen und heuristische Methoden wie "First Fit Decreasing". Es wird anhand eines praktisches Beispiels das Problem noch mal verdeutlicht. Zudem werden mögliche Erweiterungen und zukünftige Forschungsrichtungen, insbesondere im Bereich des Machine Learning, diskutiert, die das Potenzial haben, die Lösungsstrategien für das Rucksackproblem weiter zu verbessern.
+In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme der kombinatorischen Optimierung untersucht. Das Rucksackproblem zeichnet sich durch seine breite Anwendbarkeit in Bereichen wie Logistik, Finanzplanung und Produktionsoptimierung aus, wobei es um die Auswahl einer Teilmenge von Objekten mit maximalem Gesamtwert innerhalb einer festen Gewichtsbeschränkung geht. Trotz seiner scheinbaren Einfachheit stellt das Rucksackproblem eine erhebliche rechnerische Herausforderung dar, da es zur Klasse der NP-schweren Probleme gehört und somit in der Regel nicht in Polynomialzeit gelöst werden kann. Die vorliegende Arbeit beleuchtet verschiedene Lösungsansätze, darunter dynamische Programmierung, Greedy-Algorithmen und heuristische Methoden wie "First Fit Decreasing". Es wird anhand eines praktisches Beispiels das Problem noch mal verdeutlicht. Zudem werden mögliche Erweiterungen und zukünftige Forschungsrichtungen diskutiert, die das Potenzial haben, die Lösungsstrategien für das Rucksackproblem weiter zu verbessern.
 \newpage
 
 %------------------Inhaltsverzeichnis-------------------
@@ -345,15 +345,13 @@ Das Rucksackproblem ist eines der bekanntesten und am häufigsten untersuchten P
 %Aufgabenstellung
 %********************************
 \section{Problemstellung}
-Das Rucksackproblem birgt trotz seiner scheinbaren Einfachheit eine erhebliche Schwierigkeit, die sich aus seiner exponentiellen Komplexität ergibt. Die Suche nach der optimalen Kombination von Gegenständen, um die Kapazität des Rucksacks zu maximieren, erfordert eine umfassende Untersuchung aller möglichen Kombinationen. Diese exponentiell wachsende Anzahl von Kombinationen macht das Problem selbst mit modernen Computerressourcen schwierig. Effiziente Algorithmen zur Lösung des Problems sind daher von entscheidender Bedeutung.
-
+Das Rucksackproblem birgt trotz seiner scheinbaren Einfachheit eine erhebliche Schwierigkeit, die sich aus seiner exponentiellen Komplexität ergibt. Die Suche nach der optimalen Kombination von Gegenständen, um die Kapazität des Rucksacks zu maximieren, erfordert eine umfassende Untersuchung aller möglichen Kombinationen. Diese exponentiell wachsende Anzahl von Kombinationen macht das Problem selbst mit modernen Computerressourcen schwierig. Effiziente Algorithmen versuchen, eine Schätzung des Ergebnisses zu erhalten, die nahe an der optimalen Lösung liegt. Solche Algorithmen, wie z.B. die dynamische Programmierung oder heuristische Ansätze, können die benötigte Rechenzeit erheblich reduzieren und praktikable Lösungen in akzeptabler Zeit liefern.  
 
 %********************************
 %Vorüberlegung
 %********************************
 \section{Ziel und Struktur der Hausarbeit}
-Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösungsansätze zu betrachten und abschließend das Problem anhand eines Beispiels zu untersuchen. 
-
+Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösungsansätze zu betrachten und ein tiefes Verständnis für die Komplexität des Rucksackproblems und die verschiedenen Lösungsstrategien zu vermitteln. Abschließend soll das Problem anhand eines Beispiels untersucht werden.
 
 %********************************
 % Grundlagen des Rucksackproblems
@@ -411,7 +409,6 @@ maximiert. \cite{kellerer2004knapsack}
 Das Rucksackproblem gehört zur Komplexitätsklasse NP (nichtdeterministisch polynomielle Zeit). Dies bedeutet, dass das Problem mit einem deterministischen Algorithmus nicht in Polynomialzeit gelöst werden kann, sofern P ≠ NP. Eine Lösung in pseudopolynomieller Zeit kann jedoch z.B. mit Hilfe der dynamischen Programmierung gefunden werden. \cite{assi8672677}
 Im Folgenden sollen nun drei Lösungsmöglichkeiten betrachtet werden.
 
-
 %********************************
 % Dynamisches Programmieren
 %********************************
@@ -455,7 +452,18 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %********************************
 %Iwas eigenes
 %********************************
-%\section{Laufzeitanalyse und Komplexität}
+\section{Vor- und Nachteile}
+Vorteile: 
+\begin{itemize}
+	\item Optimale Lösungen: Es garantiert die optimale Lösung durch systematisches Durchsuchen aller möglichen Teilprobleme.
+	\item Wiederverwendung von Teilproblemen: Durch Speichern und Wiederverwenden von Lösungen für Teilprobleme werden redundante Berechnungen vermieden.
+\end{itemize}
+
+Nachteile:
+\begin{itemize}
+	\item Hoher Speicherbedarf: Erfordert eine große Menge an Speicherplatz, da Lösungen für alle Teilprobleme gespeichert werden müssen (Speicherkomplexität von $O(n \cdot W)$, wobei $n$ die Anzahl der Gegenstände und $W$ die Kapazität des Rucksacks ist).
+	\item Nicht für große Eingaben geeignet: Bei sehr großen Problemen (z.B. sehr viele Gegenstände oder sehr große Kapazitäten) kann der Speicher- und Zeitbedarf trotz der Pseudopolynomiellen Laufzeit sehr hoch sein.
+\end{itemize}
 
 %********************************
 %Lösung
@@ -513,7 +521,18 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 %********************************
 %Iwas eigenes
 %********************************
-%\section{Vergleich mit dynamischem Programmieren}
+\section{Vor- und Nachteile}
+Vorteile: 
+\begin{itemize}
+	\item Effizienz: Hat eine geringere Laufzeit (meist $O(nlogn)$ wegen des Sortierens), was ihn für große Datensätze schneller macht als dynamische Programmierung.
+	\item Schnelle Entscheidungsfindung: Trifft schnelle Entscheidungen ohne Rückverfolgung, was die Ausführungszeit weiter verkürzt.
+\end{itemize}
+
+Nachteile:
+\begin{itemize}
+	\item Keine optimale Lösung für das Rucksackproblem: Führt nicht immer zu einer optimalen Lösung für das klassische Rucksackproblem.
+	\item Eingeschränkte Flexibilität: Weniger flexibel bei der Anpassung an komplexere Variationen des Rucksackproblems im Vergleich zu dynamischem Programmieren.
+\end{itemize}
 
 %********************************
 %Lösung
@@ -554,10 +573,20 @@ Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände 
 \end{algorithm}
 
 %********************************
-%Lösung
+%Iwas eigenes
 %********************************
-%\newpage
-%\chapter{Anwendungsbeispiele und Fallstudien}
+\section{Vor- und Nachteile}
+Vorteile: 
+\begin{itemize}
+	\item Schnelle Implementierung: Kann schnell implementiert werden, was ihn für einfache und schnelle Lösungsansätze attraktiv macht.
+	\item Geringer Speicherbedarf: Benötigt nur wenig zusätzlichen Speicherplatz neben den Eingabedaten.
+\end{itemize}
+
+Nachteile:
+\begin{itemize}
+	\item Keine Garantie für optimale Lösungen: Liefert nicht immer die optimale Lösung, insbesondere bei komplexeren oder ungünstigeren Eingaben.
+	\item Kann ineffizient sein: In einigen Fällen kann es zu einer schlechten Ausnutzung der Kapazität kommen, da Gegenstände früh platziert werden, ohne den zukünftigen Platzbedarf zu berücksichtigen.
+\end{itemize}
 
 \pagebreak
 \chapter{Rucksackproblem in der Praxis}
@@ -581,51 +610,11 @@ Der heuristische Ansatz 'First Fit Decreasing' (FFD), sortiert die Gegenstände 
 
 
 	\section{Beispiel}
-	% Juwelier
-	Angenommen Sie rauben ein Juwelier.  
-	
-	%Angenommen, du hast einen Rucksack mit einer maximalen Tragfähigkeit von 15 kg. Du stehst vor der Wahl, welche Gegenstände du mitnehmen möchtest. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen. Deine Aufgabe ist es, die Gegenstände %auszuwählen, die du mitnehmen solltest, um den Gesamtnutzen zu maximieren, ohne das Gewichtslimit des Rucksacks zu überschreiten.
-	
-	%Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (zum Beispiel in Euro):
-	
-	%Gegenstand A: Gewicht = 5 kg, Nutzen = 10 Euro
-	%Gegenstand B: Gewicht = 8 kg, Nutzen = 14 Euro
-	%Gegenstand C: Gewicht = 3 kg, Nutzen = 7 Euro
-	%Gegenstand D: Gewicht = 4 kg, Nutzen = 5 Euro
-	%Das Ziel ist es, die Gegenstände so auszuwählen, dass der Gesamtnutzen maximiert wird, wobei das Gesamtgewicht den Rucksack nicht über 15 kg hinausgeht.
-	
-	%Eine mögliche Lösung könnte sein:
-	
-	%Gegenstand A (5 kg) + Gegenstand C (3 kg) + Gegenstand D (4 kg)
-	%Das Gesamtgewicht beträgt 5 kg + 3 kg + 4 kg = 12 kg, und der Gesamtnutzen beträgt 10 Euro + 7 Euro + 5 Euro = 22 Euro.
-	
-	%In diesem Beispiel ist die optimale Auswahl von Gegenständen also A, C und D, da sie den Gesamtnutzen maximiert, ohne das Gewichtslimit des Rucksacks zu überschreiten.
-	
-	Hier ist ein praktisches Beispiel für das  Rucksackproblem unter Verwendung des Greedy-Algorithmus:
-	
-	Angenommen, du planst eine Wanderung und hast einen Rucksack mit einer maximalen Tragfähigkeit von 10 kg. Du stehst vor der Wahl, welche Ausrüstung du mitnehmen möchtest, um deine Bedürfnisse während der Wanderung zu erfüllen. Jeder Gegenstand hat ein bestimmtes Gewicht und einen bestimmten Nutzen, der angeben kann, wie wichtig oder nützlich er für deine Wanderung ist.
-	
-	Hier ist eine Liste von Gegenständen mit ihren Gewichten (in kg) und Nutzen (auf einer Skala von 1 bis 10, wobei 10 am nützlichsten ist):
-	
-	Wasserflasche: Gewicht = 1 kg, Nutzen = 9
-	Proviant (Snacks): Gewicht = 2 kg, Nutzen = 8
-	Schlafsack: Gewicht = 3 kg, Nutzen = 7
-	Erste-Hilfe-Set: Gewicht = 1 kg, Nutzen = 6
-	Regenjacke: Gewicht = 1.5 kg, Nutzen = 9
-	Wanderkarte: Gewicht = 0.5 kg, Nutzen = 5
-	Das Ziel ist es, die Ausrüstung so auszuwählen, dass der Gesamtnutzen maximiert wird, ohne das Gewichtslimit des Rucksacks zu überschreiten.
-	
-	Anhand des Greedy-Algorithmus würdest du die Gegenstände nacheinander auswählen, beginnend mit demjenigen, der den höchsten Nutzen pro Kilogramm bietet.
-	
-	Wasserflasche (1 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 9 kg
-	Regenjacke (1.5 kg) - Nutzen = 9, verbleibendes Gewicht im Rucksack: 7.5 kg
-	Proviant (Snacks) (2 kg) - Nutzen = 8, verbleibendes Gewicht im Rucksack: 5.5 kg
-	Schlafsack (3 kg) - Nutzen = 7, verbleibendes Gewicht im Rucksack: 2.5 kg
-	Erste-Hilfe-Set (1 kg) - Nutzen = 6, verbleibendes Gewicht im Rucksack: 1.5 kg
-	Das Gesamtgewicht beträgt 1 kg + 1.5 kg + 2 kg + 3 kg + 1 kg = 8.5 kg, und der Gesamtnutzen beträgt 9 + 9 + 8 + 7 + 6 = 39.
-	
-	%\section{Fallstudien zur Anwendung von Rucksackproblemlösungen}
-
+		\subsection{Problemstellung}
+		
+		\subsection{Lösung des Beispiels}
+		
+		\subsection{Diskussion der Ergebnisse}
 
 %********************************
 %Zusammenfassung und Ausblick
