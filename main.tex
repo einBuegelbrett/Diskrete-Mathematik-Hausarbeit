@@ -206,6 +206,17 @@
 }
 %-------------------------------------------------------
 
+%-------------Kopf-/Fußzeile für Verzeichnisse--------------
+\fancypagestyle{verzeichnisse}
+{
+	\fancyhead[L]{\includegraphics[scale=0.09]{firmenlogo}}
+	\fancyhead[R]{\includegraphics[scale=0.25]{dhbw}}
+	\fancyhead[C]{Verzeichnisse}
+	\renewcommand{\headrulewidth}{1pt}
+	\fancyfoot[C]{}
+}
+%-------------------------------------------------------
+
 \begin{document} 
 	\begin{titlepage}
 		\thispagestyle{titlepage}
@@ -300,6 +311,7 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %********************************
 \newpage
 \chapter*{Verzeichnisse}
+
 \section*{Abbildungsverzeichnis}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Abbildungsverzeichnis}
 
@@ -332,6 +344,8 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %Speichern des page counters, um bei Literaturverzeichnis weiter zu zählen.
 \newcounter{frontmatterPage}
 \addtocounter{frontmatterPage}{\value{page}} 
+
+\thispagestyle{verzeichnisse}
 
 \newpage
 \pagenumbering{arabic}
