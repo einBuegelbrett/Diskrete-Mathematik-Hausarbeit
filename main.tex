@@ -285,7 +285,7 @@
 \newpage
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Abstract}
-In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme der kombinatorischen Optimierung untersucht. Das Rucksackproblem zeichnet sich durch seine breite Anwendbarkeit in Bereichen wie Logistik, Finanzplanung und Produktionsoptimierung aus, wobei es um die Auswahl einer Teilmenge von Objekten mit maximalem Gesamtwert innerhalb einer festen Gewichtsbeschränkung geht. Trotz seiner scheinbaren Einfachheit stellt das Rucksackproblem eine erhebliche rechnerische Herausforderung dar, da es zur Klasse der NP-schweren Probleme gehört und somit in der Regel nicht in Polynomialzeit gelöst werden kann. Die vorliegende Arbeit beleuchtet verschiedene Lösungsansätze, darunter dynamische Programmierung, Greedy-Algorithmen und heuristische Methoden wie "First Fit Decreasing". Es wird anhand eines praktisches Beispiels das Problem noch mal verdeutlicht. Zudem werden mögliche Erweiterungen und zukünftige Forschungsrichtungen diskutiert, die das Potenzial haben, die Lösungsstrategien für das Rucksackproblem weiter zu verbessern.
+In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme der kombinatorischen Optimierung untersucht. Das Rucksackproblem zeichnet sich durch seine breite Anwendbarkeit in Bereichen wie Logistik, Finanzplanung und Produktionsoptimierung aus, wobei es um die Auswahl einer Teilmenge von Objekten mit maximalem Gesamtwert innerhalb einer festen Gewichtsbeschränkung geht. Trotz seiner scheinbaren Einfachheit stellt das Rucksackproblem eine erhebliche rechnerische Herausforderung dar, da es zur Klasse der NP-schweren Probleme gehört und daher in der Regel nicht in Polynomialzeit lösbar ist. Die vorliegende Arbeit untersucht verschiedene Lösungsansätze, darunter dynamische Programmierung, Greedy-Algorithmen und heuristische Verfahren wie "First Fit Decreasing". Anhand eines praktischen Beispiels wird das Problem nochmals verdeutlicht. Darüber hinaus werden mögliche Erweiterungen und zukünftige Forschungsrichtungen diskutiert, die das Potential haben, die Lösungsstrategien für das Rucksackproblem weiter zu verbessern.
 \newpage
 
 %------------------Inhaltsverzeichnis-------------------
@@ -339,7 +339,7 @@ In dieser Arbeit wird das Rucksackproblem als eines der prominentesten Probleme 
 %********************************
 %Einleitung
 %********************************
-Das Rucksackproblem ist eines der bekanntesten und am häufigsten untersuchten Probleme in der Informatik und der mathematischen Optimierung. Es gehört zu den klassischen NP-schweren Problemen und findet in verschiedensten Anwendungsgebieten Anwendung, von der Logistik über die Finanzplanung bis hin zur Produktionsplanung. Die grundlegende Idee des Rucksackproblems besteht darin, eine begrenzte Kapazität eines Rucksacks optimal zu nutzen, um Gegenstände mit unterschiedlichen Werten und Größen auszuwählen. 
+Das Rucksackproblem ist eines der bekanntesten und am häufigsten untersuchten Probleme in der Informatik und der mathematischen Optimierung. Es gehört zu den klassischen NP-schweren Problemen und findet Anwendung in den verschiedensten Anwendungsgebieten, von der Logistik über die Finanzplanung bis hin zur Produktionsplanung. Die Grundidee des Rucksackproblems besteht darin, eine begrenzte Kapazität eines Rucksacks optimal zu nutzen, um Gegenstände von unterschiedlichem Wert und unterschiedlicher Größe auszuwählen. 
 
 %********************************
 %Aufgabenstellung
@@ -351,7 +351,7 @@ Das Rucksackproblem birgt trotz seiner scheinbaren Einfachheit eine erhebliche S
 %Vorüberlegung
 %********************************
 \section{Ziel und Struktur der Hausarbeit}
-Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösungsansätze zu betrachten und ein tiefes Verständnis für die Komplexität des Rucksackproblems und die verschiedenen Lösungsstrategien zu vermitteln. Abschließend soll das Problem anhand eines Beispiels untersucht werden.
+Ziel dieser Hausarbeit ist es, das Rucksackproblem vorzustellen, mögliche Lösungsansätze zu betrachten und ein vertieftes Verständnis für die Komplexität des Rucksackproblems und die verschiedenen Lösungsstrategien zu vermitteln. Abschließend soll das Problem anhand eines Beispiels untersucht werden.
 
 %********************************
 % Grundlagen des Rucksackproblems
@@ -364,19 +364,7 @@ Wir werden uns nun mit dem Rucksackproblem befassen.
 % Definition
 %********************************
 \section{Definition}
-%Das Rucksackproblem ist ein klassisches Optimierungsproblem aus der Kombinatorik. Gegeben ist
-%eine Menge von Objekten $U$, wobei jedem Objekt $u \in U$ ein Gewicht $w(u)$ und ein Nutzenwert $v(u)$
-%zugeordnet sind. Zusätzlich gibt es eine Gewichtsschranke $B$, die angibt, wie viel Gewicht maximal
-%transportiert werden kann.
-
-%Das Ziel des Rucksackproblems ist es, eine Teilmenge $K \subseteq U$ zu finden, die das Gesamtgewicht
-%$$\sum_{u \in K} w(u) \leq B$$
-%nicht größer als $B$ macht und gleichzeitig den Gesamtnutzen
-%$$\sum_{u \in K} v(u)$$
-%maximiert.
-
-
-Bei dem Rucksackproblem geht es um die Frage, wie eine begrenzte Menge von Gegenständen, die jeweils ein bestimmtes Gewicht und einen bestimmten Wert haben, so in einen Rucksack mit begrenzter Tragfähigkeit gepackt werden kann, dass der Gesamtwert der darin enthaltenen Gegenstände maximiert wird. Zur Veranschaulichung des Problems dient die grafische Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem}). 
+Das Rucksackproblem befasst sich mit der Frage, wie eine begrenzte Anzahl von Gegenständen mit jeweils einem bestimmten Gewicht und einem bestimmten Wert so in einen Rucksack mit begrenzter Tragfähigkeit gepackt werden kann, dass der Gesamtwert der darin enthaltenen Gegenstände maximiert wird. Zur Veranschaulichung des Problems dient die grafische Darstellung des Rucksackproblems (siehe Abbildung \ref{fig:rucksackproblem}). 
 
 \begin{figure}[h]
 	\centering
@@ -403,10 +391,7 @@ maximiert. \cite{kellerer2004knapsack}
 % Komplexitätsanalyse
 %********************************
 \section{Komplexitätsanalyse}
-%\cite{martello1987algorithms}
-%The decision problem form of the knapsack problem (Can a value of at least V be achieved without exceeding the weight W?) is NP-complete, thus there is no known algorithm that is both correct and fast (polynomial-time) in all cases.
-%https://en.wikipedia.org/wiki/Knapsack_problem#cite_note-3
-Das Rucksackproblem gehört zur Komplexitätsklasse NP (nichtdeterministisch polynomielle Zeit). Dies bedeutet, dass das Problem mit einem deterministischen Algorithmus nicht in Polynomialzeit gelöst werden kann, sofern P ≠ NP. Eine Lösung in pseudopolynomieller Zeit kann jedoch z.B. mit Hilfe der dynamischen Programmierung gefunden werden. \cite{assi8672677}
+Das Rucksackproblem gehört zur Komplexitätsklasse NP (nichtdeterministische Polynomialzeit). Dies bedeutet, dass das Problem mit einem deterministischen Algorithmus nicht in Polynomialzeit gelöst werden kann, sofern P ≠ NP. Eine Lösung in pseudopolynomialer Zeit kann jedoch z.B. mit Hilfe der dynamischen Programmierung gefunden werden. \cite{assi8672677}
 Im Folgenden sollen nun drei Lösungsmöglichkeiten betrachtet werden.
 
 %********************************
@@ -419,8 +404,7 @@ Im ersten Schritt wird der Ansatz der dynamischen Programmierung betrachtet.
 % Prinzip des dynamischen Programmierens
 %********************************
 \section{Prinzip des dynamischen Programmierens}
-Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprobleme zu zerlegen und deren Lösungen zu speichern, um sie später wiederzuverwenden. Indem wir die Teilproblemlösungen systematisch kombinieren, können wir das Gesamtproblem effizient lösen. Dieser Ansatz ist besonders nützlich bei Problemen mit überlappenden Teilstrukturen, bei denen viele Teilprobleme mehrmals auftreten. Das dynamische Programmieren ermöglicht eine optimale Lösung, indem es die Gesamtoptimalität aus lokalen optimalen Lösungen aufbaut.\cite{cormen2022introduction}
-% \cite{pferschy1999dynamic}
+Dynamische Programmierung basiert auf der Idee, ein Problem in kleinere Teilprobleme zu zerlegen und deren Lösungen zu speichern, um sie später wiederzuverwenden. Durch systematisches Kombinieren der Lösungen der Teilprobleme kann das Gesamtproblem effizient gelöst werden. Dieser Ansatz ist besonders nützlich bei Problemen mit überlappenden Teilstrukturen, bei denen viele Teilprobleme mehrfach auftreten. Die dynamische Programmierung ermöglicht eine optimale Lösung, indem es die Gesamtoptimalität aus lokalen optimalen Lösungen konstruiert wird.\cite{cormen2022introduction}
 
 %********************************
 %Iwas eigenes
@@ -456,13 +440,13 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 \textbf{Vorteile:}
 \begin{itemize}
 	\item Optimale Lösungen: Es garantiert die optimale Lösung durch systematisches Durchsuchen aller möglichen Teilprobleme.
-	\item Wiederverwendung von Teilproblemen: Durch Speichern und Wiederverwenden von Lösungen für Teilprobleme werden redundante Berechnungen vermieden.
+	\item Wiederverwendung von Teilproblemen: Durch das Speichern und Wiederverwenden von Lösungen für Teilprobleme werden redundante Berechnungen vermieden.
 \end{itemize}
 
 \textbf{Nachteile:}
 \begin{itemize}
 	\item Hoher Speicherbedarf: Erfordert eine große Menge an Speicherplatz, da Lösungen für alle Teilprobleme gespeichert werden müssen (Speicherkomplexität von $O(n \cdot W)$, wobei $n$ die Anzahl der Gegenstände und $W$ die Kapazität des Rucksacks ist).
-	\item Nicht für große Eingaben geeignet: Bei sehr großen Problemen (z.B. sehr viele Gegenstände oder sehr große Kapazitäten) kann der Speicher- und Zeitbedarf trotz der Pseudopolynomiellen Laufzeit sehr hoch sein.
+	\item Nicht für große Eingaben geeignet: Bei sehr großen Problemen (z.B. sehr viele Gegenstände oder sehr große Kapazitäten) kann der Speicher- und Zeitbedarf trotz pseudopolynomialer Laufzeit sehr hoch sein.
 \end{itemize}
 
 %********************************
@@ -470,22 +454,14 @@ Dynamisches Programmieren basiert auf der Idee, ein Problem in kleinere Teilprob
 %********************************
 \chapter{Greedy-Algorithmen}
 Im Folgenden wird der Greedy-Algorithmus betrachtet.
-%The idea of the greedy algorithm for the problem (1) consists in a consecutive selection of items with the largest weight density cj=aj as long as the
-%knapsack capacity admits it. More formally, the algorithm starts with a feasible solution x ¼ ð0; ... ; 0Þ and consecutively replaces zeros by ones in the
-%order of decreasing ratios cj=aj (i.e., from the left to the right); each time the
-%feasibility of the corresponding solution is checked. The process terminates
-%after obtaining the last feasible solution. This solution xG is called the greedy
-%solution; the corresponding objective function value is denoted by f G
-%\cite{diubin2003average}
-
 
 %********************************
 %Iwas eigenes
 %********************************
 \section{Prinzip der Greedy-Algorithmen}
-Die Idee des Greedy-Algorithmus für das Rucksackproblem besteht darin, Elemente fortlaufend nach ihrer Gewichtsdichte \( c_j = \frac{a_j}{w_j} \) auszuwählen, solange die Kapazität des Rucksacks dies zulässt. Der Algorithmus beginnt mit einer Anfangslösung \( x = (0, \ldots, 0) \) und ersetzt schrittweise Nullen durch Einsen, und zwar in der Reihenfolge abnehmender Gewichtsdichte \( c_j \) (also von den am besten zu den weniger gut geeigneten Elementen). Bei jedem Schritt wird überprüft, ob die neue Lösung noch machbar ist, das heißt, ob die Gesamtgewichte die Kapazität des Rucksacks nicht überschreiten.
+Die Idee des Greedy-Algorithmus für das Rucksackproblem besteht darin, Elemente fortlaufend nach ihrer Gewichtsdichte \( c_j = \frac{a_j}{w_j} \) auszuwählen, solange die Kapazität des Rucksacks dies zulässt. Der Algorithmus beginnt mit einer Anfangslösung \( x = (0, \ldots, 0) \) und ersetzt schrittweise Nullen durch Einsen, und zwar in der Reihenfolge abnehmender Gewichtsdichte \( c_j \) (d.h. von den am besten geeigneten Elementen zu den am wenigsten geeigneten Elementen). Bei jedem Schritt wird überprüft, ob die neue Lösung noch machbar ist, d.h., ob die Gesamtgewichte die Kapazität des Rucksacks nicht überschreiten.
 
-Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden können, ohne die Kapazität zu überschreiten. Die so gefundene Lösung \( x_G \) wird als gierige Lösung bezeichnet. \cite{diubin2003average}
+Der Prozess endet, wenn keine weiteren Elemente mehr hinzugefügt werden können, ohne die Kapazität zu überschreiten. Die so gefundene Lösung \( x_G \) wird als gierige Lösung bezeichnet. \cite{diubin2003average}
 
 %Die Idee des Greedy Algorithmus für das Problem besteht in einer fortlaufenden Auswahl von Elementen mit der größten Gewichtsdichte cj=aj, solange die
 %Rucksackkapazität dies zulässt. Formal gesehen beginnt der Algorithmus mit einer machbaren Lösung x ¼ ð0; ... ; 0Þ und ersetzt nacheinander Nullen durch Einsen in der
@@ -524,14 +500,14 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 \section{Vor- und Nachteile}
 \textbf{Vorteile:} 
 \begin{itemize}
-	\item Effizienz: Hat eine geringere Laufzeit (meist $O(nlogn)$ wegen des Sortierens), was ihn für große Datensätze schneller macht als dynamische Programmierung.
-	\item Schnelle Entscheidungsfindung: Trifft schnelle Entscheidungen ohne Rückverfolgung, was die Ausführungszeit weiter verkürzt.
+	\item Effizienz: Hat eine kürzere Laufzeit (meist $O(nlogn)$ wegen des Sortierens), und ist daher bei großen Datensätzen schneller als dynamische Programmierung.
+	\item Schnelle Entscheidungsfindung: Trifft schnelle Entscheidungen ohne Tracing, was die Ausführungszeit weiter verkürzt.
 \end{itemize}
 
 \textbf{Nachteile:}	
 \begin{itemize}
-	\item Keine optimale Lösung für das Rucksackproblem: Führt nicht immer zu einer optimalen Lösung für das klassische Rucksackproblem.
-	\item Eingeschränkte Flexibilität: Weniger flexibel bei der Anpassung an komplexere Variationen des Rucksackproblems im Vergleich zu dynamischem Programmieren.
+	\item Keine optimale Lösung des Rucksackproblems: Führt nicht immer zu einer optimalen Lösung des klassischen Rucksackproblems.
+	\item Eingeschränkte Flexibilität: Weniger flexibel bei der Anpassung an komplexere Variationen des Rucksackproblems im Vergleich zur dynamischen Programmierung.
 \end{itemize}
 
 %********************************
@@ -541,7 +517,7 @@ Der Prozess endet, sobald keine weiteren Elemente mehr hinzugefügt werden könn
 \chapter{First fit decreasing}
 Es wird nun das Prinzip "First fit decreasing\dq \, betrachtet.
 \section{Prinzip des First fit decreasing}
-Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihrem Gewicht und packt jeden Gegenstand in den ersten Rucksack, in den er passt. Wenn kein passender Rucksack gefunden wird, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der \ac{FFD}-Algorithmus ist einfach zu implementieren und bietet in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
+Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihrem Gewicht und legt jeden Gegenstand in den ersten Rucksack, in den er passt. Wird kein passender Rucksack gefunden, wird ein neuer Rucksack erstellt, und der Gegenstand wird in diesen eingefügt. Der \ac{FFD}-Algorithmus ist einfach zu implementieren und liefert in der Regel gute, wenn auch nicht optimale, Lösungen für das Rucksackproblem. \cite{martello1987algorithms}
 
 \section{Beispiel für First fit decreasing}
 \begin{algorithm}
@@ -578,8 +554,8 @@ Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihre
 \section{Vor- und Nachteile}
 \textbf{Vorteile:}
 \begin{itemize}
-	\item Schnelle Implementierung: Kann schnell implementiert werden, was ihn für einfache und schnelle Lösungsansätze attraktiv macht.
-	\item Geringer Speicherbedarf: Benötigt nur wenig zusätzlichen Speicherplatz neben den Eingabedaten.
+	\item Schnelle Implementierung: Kann schnell implementiert werden, was es für einfache und schnelle Lösungsansätze attraktiv macht.
+	\item Geringer Speicherbedarf: Benötigt neben den Eingabedaten nur wenig zusätzlichen Speicherplatz.
 \end{itemize}
 
 \textbf{Nachteile:}
@@ -590,7 +566,7 @@ Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihre
 
 \pagebreak
 \chapter{Rucksackproblem in der Praxis}
-	Im Folgenden werden die Anwendungsbereiche des Rucksackproblems sowie ein Beispiel für das Rucksackproblem betrachtet.
+	Im Folgenden werden die Anwendungsbereiche des Rucksackproblems sowie ein Beispiel für das Rucksackproblem dargestellt.
 	
 	\section{Anwendungsgebiete}
 	Das Rucksackproblem findet in vielen Bereichen der realen Welt Anwendung. Hier einige Beispiele:
@@ -613,7 +589,7 @@ Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihre
 		Es folgt ein Beispiel für den Greedy-Algortihmus.
 	
 		\subsection{Problemstellung}
-		Ein Kobold steht vor einem Dilemma: Eine Schatzkammer voller wertvoller Gegenstände, aber sein Rucksack bietet nur begrenzten Platz. Wie kann er seinen Gewinn maximieren, ohne zu viel Gewicht zu tragen?
+		Ein Kobold steht vor einem Dilemma: Eine Schatzkammer voller wertvoller Gegenstände, aber in seinem Rucksack ist nur begrenzt Platz. Wie kann er seinen Gewinn maximieren, ohne zu viel Gewicht zu tragen?
 		
 		Rucksackkapazität des Kobolds: 5kg \\
 		Verfügbare Gegenstände \ref{tab:Preis und Gewichtsverhältnisse der Gegenstände}:      
@@ -663,18 +639,18 @@ Der heuristische Ansatz \ac{FFD}, sortiert die Gegenstände absteigend nach ihre
 		\end{table}
 		
 		\subsection{Lösung des Beispiels}
-		Typisch für seine Art verwendet der Kobold für dieses Problem den Greedy Algorithmus. Daher nimmt er die Gegenstände mit dem höchsten Wert pro Gewicht, solange sie noch in seinen Rucksack passen. 
+		Typisch für seine Art verwendet der Kobold für dieses Problem den Greedy-Algorithmus. Er nimmt also die Gegenstände mit dem höchsten Wert pro Gewicht, solange sie noch in seinen Rucksack passen. 
 		Vom Glücksbringer bis einschließlich zum Säckchen Goldmünzen passen alle Gegenstände in den Rucksack. Danach kann der Kobold weder die Kugel des Untergangs noch den antiken Elfenring mitnehmen und nimmt stattdessen noch die Handvoll Kupferstücke mit. Damit erreicht der Kobold 895 Gold mit 5kg Gewicht. 
 	
 		\subsection{Diskussion der Ergebnisse}
-		Der Greedy Ansatz weicht hier nur unwesentlich von der besten Lösung ab, bei der der Kobold statt der Handvoll Kupferstücke und dem Säckchen Goldmünzen die Kugel des Untergangs mitnehmen sollte, für insgesamt 905 Gold. Der Greedy-Alogithmus liefert, wie hier zu sehen ist, nicht immer die beste Lösung, aber eine gute Annäherung in sehr kurzer Zeit.
+		Der Greedy-Ansatz weicht hier nur unwesentlich von der besten Lösung ab, bei der der Kobold statt der Handvoll Kupferstücke und dem Säckchen Goldmünzen die Kugel des Untergangs mitnehmen sollte, für insgesamt 905 Gold. Der Greedy-Alogithmus liefert, wie man sieht, nicht immer die beste Lösung, aber eine gute Annäherung in sehr kurzer Zeit.
 
 %********************************
 %Zusammenfassung und Ausblick
 %********************************
 \newpage
 \chapter{Zusammenfassung und Ausblick}
-Das Rucksackproblem ist ein grundlegendes Optimierungsproblem der Informatik und Mathematik mit einem breiten Anwendungsspektrum. Trotz seiner scheinbaren Einfachheit ist das Problem aufgrund seiner exponentiellen Komplexität eine Herausforderung. Es gibt verschiedene Lösungsansätze, z.B. die dynamische Programmierung, der Greedy-Algorithmus oder das First-Fit-Descreasing, das eine Lösung in pseudopolynomialer Zeit liefert, deren Lösung aber nicht immer korrekt ist. Die vorgestellten Ansätze bieten verschiedene Herangehensweisen an das Rucksackproblem, aber es gibt noch Raum für weitere Untersuchungen und Verbesserungen. Die Integration von Techniken des Machine-Learning könnte neue Möglichkeiten eröffnen, das Rucksackproblem zu lösen und gleichzeitig den steigenden Anforderungen in verschiedenen Anwendungsbereichen gerecht zu werden.
+Das Rucksackproblem ist ein grundlegendes Optimierungsproblem der Informatik und Mathematik mit einem breiten Anwendungsspektrum. Trotz seiner scheinbaren Einfachheit ist das Problem aufgrund seiner exponentiellen Komplexität eine Herausforderung. Es gibt verschiedene Lösungsansätze, z.B. die dynamische Programmierung, der Greedy-Algorithmus oder das First-Fit-Descreasing, das zwar eine Lösung in pseudopolynomialer Zeit liefert, aber nicht immer korrekt ist. Die vorgestellten Ansätze bieten verschiedene Herangehensweisen an das Rucksackproblem, aber es gibt noch Raum für weitere Untersuchungen und Verbesserungen. Die Integration von Techniken des Machine-Learning könnte neue Möglichkeiten zur Lösung des Rucksackproblems eröffnen und gleichzeitig den steigenden Anforderungen in verschiedenen Anwendungsbereichen gerecht werden.
 
 %********************************
 %Literaturverzeichnis
